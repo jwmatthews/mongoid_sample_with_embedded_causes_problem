@@ -16,11 +16,13 @@ Create rails app with rspec
 ---
  
 1. Create new rails app defaulting to rspec for tests
-	a.  	rails new mongoid_example -T --skip-active-record
+	
+		rails new mongoid_example -T --skip-active-record
     The -T option tells rails not to include Test::Unit
     --skip-active-record skip ActiveRecord since we plan to use mongoid 
 1.  edit 'Gemfile'
-	a. 		gem ‘rspec-rails’
+	
+		gem ‘rspec-rails’
 1.  	bundle install
 1.  	rails g rspec:install
 
@@ -29,22 +31,24 @@ Setup mongoid
 ---
 
 1.  edit 'Gemfile'
-	a.  	gem 'mongoid', '>= 3.1.6'
+			
+		gem 'mongoid', '>= 3.1.6'
 2. 		bundle install
 3. 		rails g mongoid:config
-4. edit 'config/mongoid.yml' if desired, can use defaults for now
 
 
 Update RSpec to cleanup DB
 ---
 
 1. edit 'Gemfile'
-	a.		gem 'database_cleaner'
+
+		gem 'database_cleaner'
 1. 		bundle install 
 1. edit 'spec/spec_helper.rb'
-	a.	Comment out 'config.use_transactional_fixtures' 
-		1.		#config.use_transactional_fixtures = true 
-	b.  Add DatabaseCleaner calls
+	1.	Comment out 'config.use_transactional_fixtures' 
+		
+			#config.use_transactional_fixtures = true 
+	1.  Add DatabaseCleaner calls
 	
 	 		config.before(:suite) do
     			DatabaseCleaner[:mongoid].strategy = :truncation
