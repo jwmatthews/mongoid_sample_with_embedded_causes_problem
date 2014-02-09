@@ -45,9 +45,10 @@ Update RSpec to cleanup DB
 		gem 'database_cleaner'
 1. 		bundle install 
 1. edit 'spec/spec_helper.rb'
-	1.	Comment out 'config.use_transactional_fixtures' 
+	1.	Comment out 'config.use_transactional_fixtures' and 'config.fixture_path'
 		
 			#config.use_transactional_fixtures = true 
+			#config.fixture_path = "#{::Rails.root}/spec/fixtures"
 	1.  Add DatabaseCleaner calls
 	
 	 		config.before(:suite) do
